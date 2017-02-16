@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>SIRMB</h1> 
+    <p>Should I Ride My Bike helps you determine if it is a good idea to ride your bike!</p> 
+  </div>
+</div>
+
+ <div class="form-group well col-xs-10 col-xs-offset-1">
+  <h3>Where are you riding your bike?</h3>
+  <input type="text" [(ngModel)]="id_city" class="form-control" placeholder="City (New York)"><br>
+  <input type="text" [(ngModel)]="id_state" class="form-control" placeholder="State (NY)"><br>
+  <button type="button" class="btn btn-primary" (click)="callWeatherService()">Submit</button>
+  
+  <br><br>
+  <!--<p>
+    <i>City, State :</i> {{ this.op_city }} {{ this.op_region }} {{ this.op_country }} <br>
+    <i>Time : </i> {{ this.op_hour }} <br>
+    <i>Condition :</i> {{ this.op_text }} <br>
+    <i>Temperature :</i> {{ this.op_temp }} <br>
+    <i>% Precipitation :</i> {{ this.op_pop }} <br>
+  </p>-->
+  
+ </div>
+
+<div class="form-group well col-xs-10 col-xs-offset-1">
+  <h3>When will you ride your bike?</h3>
+  <div>
+    <label *ngFor="let entry of entries; let idx = index" class="radio-inline"><input type="radio" name="certificategroup" (change)="onSelectionChange(entry)" [checked]="(idx === 1)" [value]="entry.value">{{ entry.description }}</label>
+  </div>
+
+  <p>Begin: </p> 
+  <select name="time">
+      <option *ngFor="let time of times" [value]="time.value">  
+      {{time.description}}
+      </option>
+  </select>
+
+  <p>End: </p>
+  <select name="time">
+      <option *ngFor="let time of times" [value]="time.value">  
+      {{time.description}}
+      </option>
+  </select>
+  
+ <pre>
+{{ this.selectedEntry | json }}
+</pre>
+ </div>
+
+
+ 
